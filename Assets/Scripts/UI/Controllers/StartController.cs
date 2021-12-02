@@ -15,6 +15,11 @@ namespace whm {
         {
             UIController.instance.Open(ViewName.Settings);
         }
+
+        public void StartPushUpsButtonClick()
+        {
+            UIController.instance.Open(ViewName.PushUpStartView);
+        }
     }
 
 }

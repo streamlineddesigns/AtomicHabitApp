@@ -115,7 +115,7 @@ namespace Paroxe.SuperCalendar.Internal
 
                 if (GameController.instance != null) {
                     if (GameController.instance.SavedResultModelRegistry.doesDayHaveData(date)) {
-                    m_CalendarCells[i + firstDay].SetHasResultsIndicator(true);
+                        m_CalendarCells[i + firstDay].SetHasResultsIndicator(true);
                     } else {
                         m_CalendarCells[i + firstDay].SetHasResultsIndicator(false);
                     }

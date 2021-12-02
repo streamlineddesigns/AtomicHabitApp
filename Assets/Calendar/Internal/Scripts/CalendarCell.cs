@@ -61,6 +61,11 @@ namespace Paroxe.SuperCalendar.Internal
                     GetComponent<Image>().sprite = m_OtherSprite;
                     GetComponent<Image>().color = m_OtherColor;
                     m_DayNumber.color = new Color(100.0f/255.0f, 100.0f/255.0f, 100.0f/255.0f, 1.0f);
+                    //#$Debug.Log(m_DayNumber);
+                    //#$
+                    if (hasDateIndicator != null) {
+                        hasDateIndicator.SetActive(false);
+                    }
                     break;
                 case State.Selected:
                     GetComponent<Image>().sprite = m_SelectedSprite;
