@@ -64,7 +64,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 2123d8544a743064da77c064d2f34db7, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9a4135b906bd70d41b66892099839474, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -235,7 +235,11 @@ MonoBehaviour:
   Model:
     date: 0
     dateTime: 0
-    roundTimes: []
+    savedResultType: 0
+    floatNumber: 0
+    floatNumberList: []
+    intNumber: 0
+    intNumberList: 
 --- !u!1 &5088556874457551249
 GameObject:
   m_ObjectHideFlags: 0
