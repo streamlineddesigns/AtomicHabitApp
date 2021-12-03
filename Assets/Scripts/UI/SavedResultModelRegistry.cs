@@ -9,16 +9,18 @@ namespace whm {
     public class SavedResultModelRegistry
     {
         /*
-         * The Registry of every day's results
-         * int : Dictionary keys are dateTime.day parsed as ints
+         * The Registry of each day's results
+         * SavedResultType : Dictionary keys are organized by SavedResultType. i.e Breathing, PushUps, ColdShowers, etc
+         * Dictionary int : Inner Dictionary keys are dateTime.day parsed as ints and returns a list of results by day
          */
-        private Dictionary<int, List<SavedResultModel>> DayRegistry = new Dictionary<int, List<SavedResultModel>>();
+        private Dictionary<SavedResultType, Dictionary<int, List<SavedResultModel>>> SavedResultsDayRegistry = new Dictionary<SavedResultType, Dictionary<int, List<SavedResultModel>>>();
 
         /*
-         * The Registry of every day's results
-         * int : Dictionary keys are dateTime.month parsed as ints
+         * The Registry of each month's results
+         * SavedResultType : Dictionary keys are organized by SavedResultType. i.e Breathing, PushUps, ColdShowers, etc
+         * Dictionary int : Inner Dictionary keys are dateTime.month parsed as ints and returns a list of results by month
          */
-        private Dictionary<int, List<SavedResultModel>> MonthRegistry = new Dictionary<int, List<SavedResultModel>>();
+        private Dictionary<SavedResultType, Dictionary<int, List<SavedResultModel>>> SavedResultsMonthRegistry = new Dictionary<SavedResultType, Dictionary<int, List<SavedResultModel>>>();
 
         public string saveFilePath = Application.persistentDataPath + "/SavedResultModels.json";
 
@@ -48,7 +50,7 @@ namespace whm {
             while((jsonString = file.ReadLine()) != null)  
             {  
                 SavedResultModel SavedResultModel = JsonUtility.FromJson<SavedResultModel>(jsonString);
-                addASpecificResult(SavedResultModel);
+                addASpecificResult((SavedResultType) SavedResultModel.savedResultType, SavedResultModel);
             }
             
             file.Close();
@@ -58,8 +60,14 @@ namespace whm {
          * this function can be used to add a specific result to a day 
          * @param SavedResultModel : the data you want to add
          */
-        public void addASpecificResult(SavedResultModel result)
+        public void addASpecificResult(SavedResultType srt, SavedResultModel result)
         {
+            if (! SavedResultsDayRegistry.ContainsKey(srt)) {
+                SavedResultsDayRegistry[srt] = new Dictionary<int, List<SavedResultModel>>();
+            }
+
+            var DayRegistry = SavedResultsDayRegistry[srt];
+
             int dayKey = result.date;
             if (DayRegistry.ContainsKey(dayKey)) {
                 DayRegistry[dayKey].Add(result);
@@ -68,11 +76,17 @@ namespace whm {
                 DayRegistry[dayKey].Add(result);
             }
 
-            addToMonthlyRegsitry(result);
+            addToMonthlyRegsitry(srt, result);
         }
 
-        public void addToMonthlyRegsitry(SavedResultModel result)
+        public void addToMonthlyRegsitry(SavedResultType srt, SavedResultModel result)
         {
+            if (! SavedResultsMonthRegistry.ContainsKey(srt)) {
+                SavedResultsMonthRegistry[srt] = new Dictionary<int, List<SavedResultModel>>();
+            }
+
+            var MonthRegistry = SavedResultsMonthRegistry[srt];
+            
             //int monthKey = new DateTime(result.dateTime).Month;
 
             int monthKey = int.Parse(new DateTime(result.dateTime).ToString("yyyyMM"));//NEW
@@ -90,8 +104,14 @@ namespace whm {
          * @param DateTimeOffset date : the date you want to check
          * @return bool : if the day has any data
          */
-        public bool doesDayHaveData(DateTimeOffset date)
+        public bool doesDayHaveData(SavedResultType srt, DateTimeOffset date)
         {
+            if (! SavedResultsDayRegistry.ContainsKey(srt)) {
+                SavedResultsDayRegistry[srt] = new Dictionary<int, List<SavedResultModel>>();
+            }
+
+            var DayRegistry = SavedResultsDayRegistry[srt];
+
             int key = int.Parse(date.ToString("yyyyMMdd"));
             if (DayRegistry.ContainsKey(key)) {
                 return true;
@@ -105,8 +125,14 @@ namespace whm {
          * @param DateTimeOffset date : the date you want to check
          * @return bool : if the day has any data
          */
-        public bool doesMonthHaveData(DateTimeOffset date)
+        public bool doesMonthHaveData(SavedResultType srt, DateTimeOffset date)
         {
+            if (! SavedResultsMonthRegistry.ContainsKey(srt)) {
+                SavedResultsMonthRegistry[srt] = new Dictionary<int, List<SavedResultModel>>();
+            }
+
+            var MonthRegistry = SavedResultsMonthRegistry[srt];
+
             //int monthKey = date.Month;
 
             int monthKey = int.Parse(date.ToString("yyyyMM"));//NEW
@@ -123,8 +149,14 @@ namespace whm {
          * @param DateTimeOffset date : the date you want to check for any data
          * @return List<SavedResultModel> : a list of the data for the specified day
          */
-        public List<SavedResultModel> getAnEntireDaysResults(DateTimeOffset date)
+        public List<SavedResultModel> getAnEntireDaysResults(SavedResultType srt, DateTimeOffset date)
         {
+            if (! SavedResultsDayRegistry.ContainsKey(srt)) {
+                SavedResultsDayRegistry[srt] = new Dictionary<int, List<SavedResultModel>>();
+            }
+
+            var DayRegistry = SavedResultsDayRegistry[srt];
+
             int key = int.Parse(date.ToString("yyyyMMdd"));
             if (DayRegistry.ContainsKey(key)) {
                 return DayRegistry[key];
@@ -138,8 +170,14 @@ namespace whm {
          * @param DateTimeOffset date : the date you want to check for any data
          * @return List<SavedResultModel> : a list of the data for the specified day
          */
-        public List<SavedResultModel> getAnEntireMonthsResults(DateTimeOffset date)
+        public List<SavedResultModel> getAnEntireMonthsResults(SavedResultType srt, DateTimeOffset date)
         {
+            if (! SavedResultsMonthRegistry.ContainsKey(srt)) {
+                SavedResultsMonthRegistry[srt] = new Dictionary<int, List<SavedResultModel>>();
+            }
+
+            var MonthRegistry = SavedResultsMonthRegistry[srt];
+
             //int monthKey = date.Month;
             int monthKey = int.Parse(date.ToString("yyyyMM"));//NEW
 
@@ -155,8 +193,14 @@ namespace whm {
          * @param DateTimeOffset date : the date you want to check
          * @return SavedResultModel : the data for the specified date and time
          */
-        public SavedResultModel getASpecificResult(DateTimeOffset date)
+        public SavedResultModel getASpecificResult(SavedResultType srt, DateTimeOffset date)
         {
+            if (! SavedResultsDayRegistry.ContainsKey(srt)) {
+                SavedResultsDayRegistry[srt] = new Dictionary<int, List<SavedResultModel>>();
+            }
+            
+            var DayRegistry = SavedResultsDayRegistry[srt];
+
             int key = int.Parse(date.ToString("yyyyMMdd"));
             long dateTime = date.Ticks;
             if (DayRegistry.ContainsKey(key)) {

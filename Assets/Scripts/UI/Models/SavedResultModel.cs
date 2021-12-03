@@ -10,15 +10,33 @@ namespace whm {
     {
         public int date;
         public long dateTime;
-        public List<float> roundTimes = new List<float>();
+        public SavedResultType savedResultType; 
 
-        public SavedResultModel(List<float> rt = null)
+        /*
+         * Generic types we can save. Examples next to them
+         */
+        public float floatNumber;
+        public List<float> floatNumberList = new List<float>();//EXAMPLE: Breathe hold times
+        public int intNumber;//EXAMPLE: Push up count
+        public List<int> intNumberList = new List<int>();
+
+        public SavedResultModel(SavedResultType sRT, float fN = 0, List<float> fNL = null, int iN = 0, List<int> iNL = null)
         {
-            if (rt != null) {
+            savedResultType = sRT;
+            if (savedResultType != null) {
                 DateTimeOffset dt = DateTime.Now;
-                roundTimes = rt;
                 date = int.Parse(dt.ToString("yyyyMMdd"));
                 dateTime = dt.Ticks;
+            }
+
+            //Breathing Initialization
+            if (fNL != null && sRT == SavedResultType.Breathing) {
+                floatNumberList = fNL;
+            }
+
+            //Push Ups Innitialization
+            if (iN != 0 && sRT == SavedResultType.PushUps) {
+                intNumber = iN;
             }
         }
     }

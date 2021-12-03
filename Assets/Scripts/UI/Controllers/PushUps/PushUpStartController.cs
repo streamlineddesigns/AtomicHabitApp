@@ -12,6 +12,8 @@ namespace whm {
         public GameObject VideoRenderTexture;
         public GameObject StartContent;
         public GameObject SessionContent;
+        public GameObject FinishButton;
+        public int PushUpsTilUserCanFinish = 1;
 
         public bool IsInit = false;
         public Text PushupLeftCountText;
@@ -25,9 +27,11 @@ namespace whm {
 
         public void OnEnable()
         {
+            SallyUpVideo.loopPointReached += VideoEndReached;
             StartContent.SetActive(true);
             SessionContent.SetActive(false);
             VideoRenderTexture.SetActive(false);
+            FinishButton.SetActive(false);
             SallyUpVideo.Stop();
             PushupLeftCountText.text = "30";
             CurrentPushUpTimeIndex = 0;
@@ -36,14 +40,11 @@ namespace whm {
 
         public void OnDisable()
         {
-
+            SallyUpVideo.loopPointReached -= VideoEndReached;
         }
         void Update()
         {
             if (! SallyUpVideo.isPlaying) {
-                if (IsInit) {
-                    //previously initialized and just finished the entire video
-                }
                 return;
             }
 
@@ -51,7 +52,12 @@ namespace whm {
 
             if (CurrentPushUpTimeIndex < VideoPushUpTimes.Count && currentSallyUpVideoTime >= VideoPushUpTimes[CurrentPushUpTimeIndex]) {
 
+                PushUpsController.Singleton.Model.completedPushUps = CurrentPushUpTimeIndex;
                 CurrentPushUpTimeIndex++;
+
+                if (! FinishButton.activeSelf && CurrentPushUpTimeIndex > PushUpsTilUserCanFinish) {
+                    FinishButton.SetActive(true);
+                }
                 int pushupsLeft = 30 - (CurrentPushUpTimeIndex - 1);
                 PushupLeftCountText.text = pushupsLeft.ToString();
 
@@ -69,7 +75,12 @@ namespace whm {
 
         public void FinishButtonClick()
         {
-            
+            UIController.instance.Open(ViewName.PushUpsCompletion);
+        }
+
+        public void VideoEndReached(UnityEngine.Video.VideoPlayer vp)
+        {
+            FinishButtonClick();
         }
     }
 

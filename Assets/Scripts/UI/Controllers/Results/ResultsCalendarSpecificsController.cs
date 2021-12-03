@@ -33,16 +33,16 @@ namespace whm{
             RoundDataViews = new List<GameObject>();
             
 
-            for (int i = 0; i < UIController.instance.selectedResult.roundTimes.Count; i++) {
+            for (int i = 0; i < UIController.instance.selectedResult.floatNumberList.Count; i++) {
                 GameObject roundView = Instantiate(RoundDataModelPrefab, RoundDataContainer.transform);
                 RoundDataModel roundModel = roundView.GetComponent<RoundDataModel>();
                 roundModel.RoundText.text = "ROUND " + (i + 1).ToString();
-                roundModel.TimeToCompleteText.text = BreathingLoopController.instance.GetReadableTime(UIController.instance.selectedResult.roundTimes[i]);
+                roundModel.TimeToCompleteText.text = BreathingLoopController.instance.GetReadableTime(UIController.instance.selectedResult.floatNumberList[i]);
                 RoundDataViews.Add(roundView);
-                totalTime += UIController.instance.selectedResult.roundTimes[i];
+                totalTime += UIController.instance.selectedResult.floatNumberList[i];
             }
 
-            AverageTimeText.text = BreathingLoopController.instance.GetReadableTime(totalTime / UIController.instance.selectedResult.roundTimes.Count);
+            AverageTimeText.text = BreathingLoopController.instance.GetReadableTime(totalTime / UIController.instance.selectedResult.floatNumberList.Count);
         }
 
         public void OnDisable()

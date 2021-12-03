@@ -21,7 +21,7 @@ namespace whm {
 
             SavedResultViews = new List<GameObject>();
 
-            List<SavedResultModel> SavedResultModels = GameController.instance.SavedResultModelRegistry.getAnEntireDaysResults(UIController.instance.selectedDay);
+            List<SavedResultModel> SavedResultModels = GameController.instance.SavedResultModelRegistry.getAnEntireDaysResults(SavedResultType.Breathing, UIController.instance.selectedDay);
 
             for (int i = 0; i < SavedResultModels.Count; i++) {
                 GameObject roundView = Instantiate(SavedResultViewPrefab, SavedResultViewContainer.transform);

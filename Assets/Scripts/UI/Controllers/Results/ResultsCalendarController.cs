@@ -36,7 +36,7 @@ namespace whm {
          */
         public void OnDayChange(DateTime dateTime)
         {
-            if (GameController.instance.SavedResultModelRegistry.doesDayHaveData(dateTime)) {
+            if (GameController.instance.SavedResultModelRegistry.doesDayHaveData(SavedResultType.Breathing, dateTime)) {
                 UIController.instance.selectedDay = dateTime;
                 UIController.instance.OpenImmediately(ViewName.ResultsCalendarDay);
             }
@@ -60,7 +60,7 @@ namespace whm {
         {
             currentMonthText.text = UIController.instance.selectedMonth.ToString("MMMM") + " Summary";
 
-            if (GameController.instance.SavedResultModelRegistry.doesMonthHaveData(UIController.instance.selectedMonth)) {
+            if (GameController.instance.SavedResultModelRegistry.doesMonthHaveData(SavedResultType.Breathing, UIController.instance.selectedMonth)) {
 
                 SetMonthlyOverViewWithData();
 
@@ -71,21 +71,21 @@ namespace whm {
 
         public void SetMonthlyOverViewWithData()
         {
-            List<SavedResultModel> monthlyResults = GameController.instance.SavedResultModelRegistry.getAnEntireMonthsResults(UIController.instance.selectedMonth); 
+            List<SavedResultModel> monthlyResults = GameController.instance.SavedResultModelRegistry.getAnEntireMonthsResults(SavedResultType.Breathing, UIController.instance.selectedMonth); 
             int totalBreathingSessions = monthlyResults.Count;
             int totalRounds = 0;
             float longestRound = 0;
             float totalRetentionTime = 0;
 
             for (int i = 0; i < monthlyResults.Count; i++) {
-                totalRounds += monthlyResults[i].roundTimes.Count;
+                totalRounds += monthlyResults[i].floatNumberList.Count;
 
-                for (int j = 0; j < monthlyResults[i].roundTimes.Count; j++) {
+                for (int j = 0; j < monthlyResults[i].floatNumberList.Count; j++) {
 
-                    totalRetentionTime += monthlyResults[i].roundTimes[j];
+                    totalRetentionTime += monthlyResults[i].floatNumberList[j];
                     
-                    if (monthlyResults[i].roundTimes[j] > longestRound) {
-                        longestRound = monthlyResults[i].roundTimes[j];
+                    if (monthlyResults[i].floatNumberList[j] > longestRound) {
+                        longestRound = monthlyResults[i].floatNumberList[j];
                     }
 
                 }

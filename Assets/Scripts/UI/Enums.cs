@@ -14,6 +14,9 @@ namespace whm {
         ResultsCalendar,
         ResultsCalendarDay,
         ResultsCalendarSpecifics,
+        PushUpsStart,
+        PushUpsCompletion,
+
     }
 
     public enum PaceName {
@@ -27,6 +30,12 @@ namespace whm {
         Retention,
         Recovery,
         Completion,
+    }
+
+    public enum SavedResultType {
+        Breathing,
+        PushUps,
+        ColdShower,
     }
 
 }
