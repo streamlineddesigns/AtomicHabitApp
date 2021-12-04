@@ -22,6 +22,8 @@ namespace whm {
         BreathingSpecifics,
         PushUpsSpecifics,
         ColdShowerSpecifics,
+        ColdShowersStart,
+        ColdShowersCompletion,
     }
 
     public enum PaceName {

@@ -20,6 +20,11 @@ namespace whm {
         {
             UIController.instance.Open(ViewName.PushUpsStart);
         }
+
+        public void ColdShowersButtonClick()
+        {
+            UIController.instance.Open(ViewName.ColdShowersStart);
+        }
     }
 
 }

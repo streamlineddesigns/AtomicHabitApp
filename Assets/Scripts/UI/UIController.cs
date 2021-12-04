@@ -62,6 +62,14 @@ namespace whm {
             ViewName e = previousView.ViewName;
             Open(e);
         }
+
+        public string GetReadableTime(float originalTime)
+        {
+            float minutes = (int) originalTime / 60;
+            float seconds = originalTime % 60.0f;
+            string readable = minutes.ToString("") + ":" + seconds.ToString("00");
+            return readable;
+        }
     }
     
 }

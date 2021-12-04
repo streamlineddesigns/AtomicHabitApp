@@ -34,8 +34,13 @@ namespace whm {
                 floatNumberList = fNL;
             }
 
-            //Push Ups Innitialization
+            //Push Ups Initialization
             if (iN != 0 && sRT == SavedResultType.PushUps) {
+                intNumber = iN;
+            }
+
+            //Cold Showers Initialization
+            if (iN != 0 && sRT == SavedResultType.ColdShowers) {
                 intNumber = iN;
             }
         }

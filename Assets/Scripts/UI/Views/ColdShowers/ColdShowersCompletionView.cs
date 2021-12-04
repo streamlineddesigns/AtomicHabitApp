@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace whm {
 
-    public class PushUpStartView : View
+    public class ColdShowersCompletionView : View
     {
         
     }
