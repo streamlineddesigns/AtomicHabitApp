@@ -1,0 +1,77 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: UI
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings: []
+    packingSettings:
+      serializedVersion: 2
+      padding: 8
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 0
+      enableTightPacking: 0
+    variantMultiplier: 1
+    packables:
+    - {fileID: 102900000, guid: 7a595feb3be182b44806ed179acf12c0, type: 3}
+    bindAsDefault: 1
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: 684f9722ff4bee94f9c3de83a61bf135, type: 3}
+  - {fileID: 21300000, guid: c3b404625b2e0824cbd39f3825af399b, type: 3}
+  - {fileID: 21300000, guid: 7a33800328c280a4ba321b15ea7685ba, type: 3}
+  - {fileID: 21300000, guid: 08847f33fbd990e4c801ab21eaaebf40, type: 3}
+  - {fileID: 21300000, guid: 2123d8544a743064da77c064d2f34db7, type: 3}
+  - {fileID: 21300000, guid: bd13a7e4a9837dd4bbf00a53fc14e4c8, type: 3}
+  - {fileID: 21300000, guid: 7a8d741546546044e957ea0d90130f02, type: 3}
+  - {fileID: 21300000, guid: 607b9197fe2db8e42b0a2afc8ac6a0bb, type: 3}
+  - {fileID: 21300000, guid: 1033b4a72a4c5374da7fd1ba5fe34bb5, type: 3}
+  - {fileID: 21300000, guid: 9730b889600b02b499eda08f1f4221e5, type: 3}
+  - {fileID: 21300000, guid: 9a4135b906bd70d41b66892099839474, type: 3}
+  - {fileID: 21300000, guid: b24408da9f7084547a2dc57fed174f94, type: 3}
+  - {fileID: 21300000, guid: eebd3a7bfaab8014d92d61afda99227a, type: 3}
+  - {fileID: 21300000, guid: 5014c89bf3d63f64cb8c8d30bab9f9af, type: 3}
+  - {fileID: 21300000, guid: 9b8532db0f381de428c92b711f4f3eae, type: 3}
+  - {fileID: 21300000, guid: fe99b8cc0cdc4ba48afed441eb6181f3, type: 3}
+  - {fileID: 21300000, guid: 36b9d4ec35e00834486e97e9c14614f2, type: 3}
+  - {fileID: 21300000, guid: 8c7f2d5e68b62bc439a205f379f3aa4b, type: 3}
+  - {fileID: 21300000, guid: ed780eeec95dbd148a6680e1bdc3a176, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - tinyoval
+  - speaker-filled-audio-tool
+  - hexagon-geometrical-shape-outline
+  - chevron-arrow-up
+  - headphone
+  - down-arrow
+  - add
+  - settings
+  - tinycircle
+  - play
+  - breathing
+  - alarm
+  - shower
+  - oval
+  - minus
+  - close
+  - push-up
+  - wind
+  - voice-command
+  m_Tag: UI
+  m_IsVariant: 0

@@ -1,0 +1,81 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Calendar UI
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings: []
+    packingSettings:
+      serializedVersion: 2
+      padding: 8
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 0
+      enableTightPacking: 0
+    variantMultiplier: 1
+    packables:
+    - {fileID: 102900000, guid: 604afe6cb365e474789a6e8c62a2c7ce, type: 3}
+    bindAsDefault: 1
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: 6f788230449e45d4da451a69cd98336b, type: 3}
+  - {fileID: 21300000, guid: c9329550402984948a39e3b84a72bfb8, type: 3}
+  - {fileID: 21300000, guid: 384d55116a81c044c9a4b28740ab42bc, type: 3}
+  - {fileID: 21300000, guid: eb42b5829a25c6f4fb219f0e65fa9c0f, type: 3}
+  - {fileID: 21300000, guid: 99b445a23526f654593f4c4bb15ee0c7, type: 3}
+  - {fileID: 21300000, guid: 0082d6d2ba624534093cd5501107c51a, type: 3}
+  - {fileID: 21300000, guid: 1447cd1404cfc60419980e04cda0a4c3, type: 3}
+  - {fileID: 21300000, guid: b3a0ae94cc8eb4542b92099521362aa9, type: 3}
+  - {fileID: 21300000, guid: 9e4688b414145ee4382c6303148d50af, type: 3}
+  - {fileID: 21300000, guid: 086a41b5d44089a4295685f8141a9f54, type: 3}
+  - {fileID: 21300000, guid: 73f77f16147a48749be592d3144f2fbd, type: 3}
+  - {fileID: 21300000, guid: 9cf05587131b97f4e9047ad833005b6e, type: 3}
+  - {fileID: 21300000, guid: 58a729a988834c94cbe80cd005e76326, type: 3}
+  - {fileID: 21300000, guid: d715188b15f8c08478cde927820cb382, type: 3}
+  - {fileID: 21300000, guid: d9f5e7bbdd036ca4ebe10da77cd7ced8, type: 3}
+  - {fileID: 21300000, guid: f9eb3d5c391fac94988391ffe1dd8326, type: 3}
+  - {fileID: 21300000, guid: 50e829aca75e91e47ac52ec96aa7f3f4, type: 3}
+  - {fileID: 21300000, guid: 00c8871ed0d0e104ba3cfd10c39e9bfb, type: 3}
+  - {fileID: 21300000, guid: 2b6786aed73ee0e458e7adce0a369ae0, type: 3}
+  - {fileID: 21300000, guid: 0bd6a7ce371a1674b9ceb9ab8430f5b9, type: 3}
+  - {fileID: 21300000, guid: 2a6722ee9e4ad854bb51ea359ea2d246, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - HorArrow
+  - AMButton
+  - CalendarBorder
+  - DotNeedle
+  - TopDate
+  - DateBackground
+  - TimePickerButtonMinus
+  - MonthIcon
+  - Clock
+  - DayBar
+  - TimePickerUp
+  - TimePickerButton
+  - MinuteNeedle
+  - TimePickerInput
+  - HoverDateBackground
+  - OtherMonthDateBackground
+  - TimeIcon
+  - HourNeedle
+  - SecondNeedle
+  - TimePickerMinus
+  - DateBorder
+  m_Tag: Calendar UI
+  m_IsVariant: 0
