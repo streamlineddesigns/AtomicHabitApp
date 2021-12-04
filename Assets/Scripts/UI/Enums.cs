@@ -16,7 +16,9 @@ namespace whm {
         ResultsCalendarSpecifics,
         PushUpsStart,
         PushUpsCompletion,
-
+        BreathingMonthlyStatistics,
+        PushUpsMonthlyStatistics,
+        ColdShowersMonthlyStatistics,
     }
 
     public enum PaceName {
@@ -35,7 +37,7 @@ namespace whm {
     public enum SavedResultType {
         Breathing,
         PushUps,
-        ColdShower,
+        ColdShowers,
     }
 
 }

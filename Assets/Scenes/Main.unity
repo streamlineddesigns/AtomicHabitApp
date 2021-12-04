@@ -5432,7 +5432,7 @@ GameObject:
   - component: {fileID: 605081265}
   - component: {fileID: 605081264}
   m_Layer: 5
-  m_Name: totalRetentionTimeText
+  m_Name: totalPushUpsText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5510,7 +5510,7 @@ GameObject:
   - component: {fileID: 612896764}
   - component: {fileID: 612896763}
   m_Layer: 5
-  m_Name: longestRoundTimeText
+  m_Name: MostPushUpsText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14670,6 +14670,8 @@ MonoBehaviour:
   - {fileID: 701658015}
   - {fileID: 1118439516}
   - {fileID: 1413870489}
+  - {fileID: 1400940365}
+  - {fileID: 1451057651}
 --- !u!1 &808613474
 GameObject:
   m_ObjectHideFlags: 0
@@ -15178,7 +15180,7 @@ GameObject:
   - component: {fileID: 846107795}
   - component: {fileID: 846107794}
   m_Layer: 5
-  m_Name: totalRentionTimeHeader
+  m_Name: totalPushUpsHeader
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15900,7 +15902,7 @@ GameObject:
   - component: {fileID: 923855514}
   - component: {fileID: 923855513}
   m_Layer: 5
-  m_Name: averageRetentionTimeText
+  m_Name: AveragePushUpsText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16569,7 +16571,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 0:10
+  m_Text: 0:00
 --- !u!222 &983503724
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -18975,7 +18977,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 1
+  m_Text: 0
 --- !u!222 &1217267553
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -19372,12 +19374,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e303100626cfe345bc3bdeac9ac6bd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  averageRetentionTimeText: {fileID: 983503723}
-  longestRoundTimeText: {fileID: 1971383128}
-  totalBreathingSessionsText: {fileID: 1217267552}
-  totalRoundsText: {fileID: 2119223746}
-  totalRetentionTimeText: {fileID: 1507869673}
-  currentMonthText: {fileID: 1708815221}
+  monthlyStatisticsControllers:
+  - {fileID: 1400940364}
+  - {fileID: 1451057650}
 --- !u!1 &1277754813
 GameObject:
   m_ObjectHideFlags: 0
@@ -20839,8 +20838,10 @@ GameObject:
   - component: {fileID: 1400940363}
   - component: {fileID: 1400940362}
   - component: {fileID: 1400940361}
+  - component: {fileID: 1400940365}
+  - component: {fileID: 1400940364}
   m_Layer: 5
-  m_Name: Breathing Monthly Overview
+  m_Name: BreathingMonthlyStatisticsView
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -20929,6 +20930,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1400940359}
   m_CullTransparentMesh: 0
+--- !u!114 &1400940364
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1400940359}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 411c2359e10e9374b82166ca41ec0ea1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  averageRetentionTimeText: {fileID: 983503723}
+  longestRoundTimeText: {fileID: 1971383128}
+  totalBreathingSessionsText: {fileID: 1217267552}
+  totalRoundsText: {fileID: 2119223746}
+  totalRetentionTimeText: {fileID: 1507869673}
+  currentMonthText: {fileID: 1708815221}
+--- !u!114 &1400940365
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1400940359}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ff4cc7fb3b266c49a1c92d8f957b44b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ViewName: 11
 --- !u!1 &1401986470
 GameObject:
   m_ObjectHideFlags: 0
@@ -21500,8 +21532,10 @@ GameObject:
   - component: {fileID: 1451057649}
   - component: {fileID: 1451057648}
   - component: {fileID: 1451057647}
+  - component: {fileID: 1451057651}
+  - component: {fileID: 1451057650}
   m_Layer: 5
-  m_Name: Push Ups Monthly Overview
+  m_Name: PushUpsMonthlyStatisticsView
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -21589,6 +21623,36 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1451057645}
   m_CullTransparentMesh: 0
+--- !u!114 &1451057650
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1451057645}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7cd9f8657cc627d4f8b002fb279fd971, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AveragePushUpsText: {fileID: 923855513}
+  MostPushUpsText: {fileID: 612896763}
+  totalRoundsText: {fileID: 1150105338}
+  totalPushUpsText: {fileID: 605081264}
+  currentMonthText: {fileID: 687730279}
+--- !u!114 &1451057651
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1451057645}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 253df83b356583f409b7ec4a52459ca7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ViewName: 12
 --- !u!224 &1461707033 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 22431860, guid: 0c021ffc73c53714d87e046eb77f5b46,
@@ -26469,7 +26533,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 0:10
+  m_Text: 0:00
 --- !u!222 &1971383129
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -28020,7 +28084,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 1
+  m_Text: 0
 --- !u!222 &2119223747
 CanvasRenderer:
   m_ObjectHideFlags: 0
