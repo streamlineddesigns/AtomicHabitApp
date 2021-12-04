@@ -70,6 +70,21 @@ namespace whm {
             string readable = minutes.ToString("") + ":" + seconds.ToString("00");
             return readable;
         }
+
+        public string GetReadableHourlyTime(float originalTime)
+        {
+            float totalHours = originalTime / 3600;
+            int hours = (int) totalHours;
+            float minutes = (int) ((originalTime % 3600) / 60);
+            string readable = "";
+            if (minutes >= 10) {
+                readable = hours.ToString("") + "h " + minutes.ToString("") + "m";
+            } else {
+                readable = hours.ToString("") + "h 0" + minutes.ToString("") + "m";
+            }
+            
+            return readable;
+        }
     }
     
 }
