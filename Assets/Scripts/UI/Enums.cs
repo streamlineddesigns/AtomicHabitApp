@@ -19,6 +19,9 @@ namespace whm {
         BreathingMonthlyStatistics,
         PushUpsMonthlyStatistics,
         ColdShowersMonthlyStatistics,
+        BreathingSpecifics,
+        PushUpsSpecifics,
+        ColdShowerSpecifics,
     }
 
     public enum PaceName {
