@@ -64,7 +64,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 9a4135b906bd70d41b66892099839474, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 36b9d4ec35e00834486e97e9c14614f2, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -89,7 +89,7 @@ GameObject:
   - component: {fileID: 5088556874062114071}
   - component: {fileID: 5088556874062114064}
   m_Layer: 5
-  m_Name: BreathingSavedResultView
+  m_Name: PushupsSavedResultView
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -395,7 +395,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: BREATHING SESSION
+  m_Text: PUSH UP SESSION
 --- !u!1 &5088556875084371647
 GameObject:
   m_ObjectHideFlags: 0

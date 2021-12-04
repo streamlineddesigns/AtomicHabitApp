@@ -23920,8 +23920,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e30b57dca2e2d844a280b2d7ab6b685, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SavedResultViewPrefab: {fileID: 5088556874062114074, guid: 9cc4405cc19153143b36ce6117873719,
-    type: 3}
+  SavedResultViewPrefabs:
+  - {fileID: 5088556874062114074, guid: 9cc4405cc19153143b36ce6117873719, type: 3}
+  - {fileID: 5088556874062114074, guid: 7f765ba60bc2b3242ac00fe54f77ad92, type: 3}
+  - {fileID: 5088556874062114074, guid: b09fe996142c5a9489c7c8b191292bf1, type: 3}
   SavedResultViewContainer: {fileID: 1599505309}
   SavedResultViews: []
   dateText: {fileID: 887681816}

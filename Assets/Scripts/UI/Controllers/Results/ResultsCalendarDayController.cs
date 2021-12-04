@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -6,10 +7,20 @@ using UnityEngine.UI;
 namespace whm {
     public class ResultsCalendarDayController : Controller
     {
-        public GameObject SavedResultViewPrefab;
+        [Tooltip("Make sure these prefab's order matches their corresponding Enum's order")]
+        public List<GameObject> SavedResultViewPrefabs = new List<GameObject>();
+        public Dictionary<SavedResultType, GameObject> SavedResultViewPrefabRegistry = new Dictionary<SavedResultType, GameObject>();
         public GameObject SavedResultViewContainer;
         public List<GameObject> SavedResultViews;
         public Text dateText;
+
+        void Awake()
+        {
+            for (int i = 0; i < SavedResultViewPrefabs.Count; i++) 
+            {   
+                SavedResultViewPrefabRegistry[(SavedResultType)i] = SavedResultViewPrefabs[i];
+            }
+        }
 
         public void OnEnable()
         {
@@ -21,14 +32,20 @@ namespace whm {
 
             SavedResultViews = new List<GameObject>();
 
-            List<SavedResultModel> SavedResultModels = GameController.instance.SavedResultModelRegistry.getAnEntireDaysResults(SavedResultType.Breathing, UIController.instance.selectedDay);
+            foreach (SavedResultType e in Enum.GetValues(typeof(SavedResultType))) {
 
-            for (int i = 0; i < SavedResultModels.Count; i++) {
-                GameObject roundView = Instantiate(SavedResultViewPrefab, SavedResultViewContainer.transform);
-                SavedResultView SavedResultView = roundView.GetComponent<SavedResultView>();
-                SavedResultView.SessionCount.text = (i + 1).ToString();
-                SavedResultView.Model = SavedResultModels[i];
-                SavedResultViews.Add(roundView);
+                List<SavedResultModel> SavedResultModels = GameController.instance.SavedResultModelRegistry.getAnEntireDaysResults(e, UIController.instance.selectedDay);
+
+                if (SavedResultModels != null) {
+                    for (int i = 0; i < SavedResultModels.Count; i++) {
+                        GameObject roundView = Instantiate(SavedResultViewPrefabRegistry[e], SavedResultViewContainer.transform);
+                        SavedResultView SavedResultView = roundView.GetComponent<SavedResultView>();
+                        SavedResultView.SessionCount.text = (i + 1).ToString();
+                        SavedResultView.Model = SavedResultModels[i];
+                        SavedResultViews.Add(roundView);
+                    }
+                }
+                
             }
 
             dateText.text = UIController.instance.selectedDay.ToString("MMMM dd, yyyy");
