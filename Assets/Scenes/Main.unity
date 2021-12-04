@@ -15045,7 +15045,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -117, y: 0}
+  m_AnchoredPosition: {x: -100, y: 0}
   m_SizeDelta: {x: 125, y: 76}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &765552721
@@ -15080,7 +15080,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: AVERAGE
+  m_Text: DURATION
 --- !u!222 &765552722
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -32938,7 +32938,7 @@ GameObject:
   - component: {fileID: 1246104554}
   - component: {fileID: 1246104553}
   m_Layer: 5
-  m_Name: Average
+  m_Name: Duration
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -35452,7 +35452,7 @@ GameObject:
   - component: {fileID: 1326693564}
   - component: {fileID: 1326693563}
   m_Layer: 5
-  m_Name: TimeText
+  m_Name: ColdShowerDurationText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -37365,6 +37365,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e124e59d49ea724e834f005a3606323, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DateTimeText: {fileID: 387028131}
+  ColdShowerDurationText: {fileID: 1326693563}
 --- !u!114 &1409090295
 MonoBehaviour:
   m_ObjectHideFlags: 0
