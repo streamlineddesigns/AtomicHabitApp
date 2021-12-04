@@ -1,6 +1,10 @@
-﻿using UnityEngine;
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using whm;
 
 namespace Paroxe.SuperCalendar.Internal
 {
@@ -16,11 +20,19 @@ namespace Paroxe.SuperCalendar.Internal
         public Color m_CurrentColor;
         public Color m_SelectedColor;
 
-        public GameObject hasDateIndicator;
+        //public GameObject hasDateIndicator;
+        public List<ResultIndicatorView> resultIndicatorViews = new List<ResultIndicatorView>();
+        protected Dictionary<SavedResultType, ResultIndicatorView> resultIndicatorRegistry = new Dictionary<SavedResultType, ResultIndicatorView>();
 
         public ICalendarCellPicker m_CalendarCellPicker;
 
         private State m_State;
+
+        void Awake() {
+            for(int i = 0; i < resultIndicatorViews.Count; i++) {
+                resultIndicatorRegistry[resultIndicatorViews[i].savedResultType] = resultIndicatorViews[i];
+            }
+        }
 
         public enum State
         {
@@ -36,12 +48,12 @@ namespace Paroxe.SuperCalendar.Internal
             m_CalendarCellPicker.OnCellSelected(this);
         }
 
-        public void SetHasResultsIndicator(bool hasResults)
+        public void SetResultsIndicator(bool hasResults, SavedResultType srt)
         {
             if (hasResults) {
-                if (hasDateIndicator != null) hasDateIndicator.SetActive(true);
+                if (resultIndicatorRegistry.ContainsKey(srt) && resultIndicatorRegistry[srt] != null) resultIndicatorRegistry[srt].gameObject.SetActive(true);
             } else {
-                if (hasDateIndicator != null) hasDateIndicator.SetActive(false);
+                if (resultIndicatorRegistry.ContainsKey(srt) && resultIndicatorRegistry[srt] != null) resultIndicatorRegistry[srt].gameObject.SetActive(false);
             }
         }
 
@@ -54,23 +66,31 @@ namespace Paroxe.SuperCalendar.Internal
                 case State.Current:
                     GetComponent<Image>().sprite = m_CurrentSprite;
                     GetComponent<Image>().color = m_CurrentColor;
-                    if (hasDateIndicator != null && hasDateIndicator.activeSelf) hasDateIndicator.GetComponent<Image>().color = m_SelectedColor;
+                    for(int i = 0; i < resultIndicatorRegistry.Count; i++) {
+                        if (resultIndicatorRegistry[(SavedResultType)i] != null && resultIndicatorRegistry[(SavedResultType)i].gameObject.activeSelf) {
+                            resultIndicatorRegistry[(SavedResultType)i].GetComponent<Image>().color = m_SelectedColor;
+                        }
+                    }
                     m_DayNumber.color = Color.black;
                     break;
                 case State.Other:
                     GetComponent<Image>().sprite = m_OtherSprite;
                     GetComponent<Image>().color = m_OtherColor;
                     m_DayNumber.color = new Color(100.0f/255.0f, 100.0f/255.0f, 100.0f/255.0f, 1.0f);
-                    //#$Debug.Log(m_DayNumber);
-                    //#$
-                    if (hasDateIndicator != null) {
-                        hasDateIndicator.SetActive(false);
+                    for(int i = 0; i < resultIndicatorRegistry.Count; i++) {
+                        if (resultIndicatorRegistry[(SavedResultType)i] != null) {
+                            resultIndicatorRegistry[(SavedResultType)i].gameObject.SetActive(false);
+                        }
                     }
                     break;
                 case State.Selected:
                     GetComponent<Image>().sprite = m_SelectedSprite;
                     GetComponent<Image>().color = m_SelectedColor;
-                    if (hasDateIndicator != null && hasDateIndicator.activeSelf) hasDateIndicator.GetComponent<Image>().color = m_CurrentColor;
+                    for(int i = 0; i < resultIndicatorRegistry.Count; i++) {
+                        if (resultIndicatorRegistry[(SavedResultType)i] != null && resultIndicatorRegistry[(SavedResultType)i].gameObject.activeSelf) {
+                            resultIndicatorRegistry[(SavedResultType)i].GetComponent<Image>().color = m_CurrentColor;
+                        }
+                    }
                     m_DayNumber.color = Color.white;
                     break;
             }

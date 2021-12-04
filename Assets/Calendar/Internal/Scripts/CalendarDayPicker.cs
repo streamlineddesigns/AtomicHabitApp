@@ -114,10 +114,14 @@ namespace Paroxe.SuperCalendar.Internal
                 DateTimeOffset date = new DateTime(dateTime.Year, dateTime.Month, i + 1);
 
                 if (GameController.instance != null) {
-                    if (GameController.instance.SavedResultModelRegistry.doesDayHaveData(SavedResultType.Breathing, date)) {
-                        m_CalendarCells[i + firstDay].SetHasResultsIndicator(true);
-                    } else {
-                        m_CalendarCells[i + firstDay].SetHasResultsIndicator(false);
+                    foreach (SavedResultType e in Enum.GetValues(typeof(SavedResultType)))
+                    {
+                        if (GameController.instance.SavedResultModelRegistry.doesDayHaveData(e, date)) {
+                            Debug.Log("true: " + e);
+                            m_CalendarCells[i + firstDay].SetResultsIndicator(true, e);
+                        } else {
+                            m_CalendarCells[i + firstDay].SetResultsIndicator(false, e);
+                        }
                     }
                 }
                 
