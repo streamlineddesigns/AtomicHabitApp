@@ -11,9 +11,14 @@ namespace whm {
         public VideoPlayer SallyUpVideo;
         public GameObject VideoRenderTexture;
         public GameObject StartContent;
+        public GameObject CountdownContent;
         public GameObject SessionContent;
         public GameObject FinishButton;
         public int PushUpsTilUserCanFinish = 1;
+
+        public Text CountdownText;
+        public float countdownTime = 10;
+        protected bool bCountdown;
 
         public bool IsInit = false;
         public Text PushupLeftCountText;
@@ -30,12 +35,15 @@ namespace whm {
             SallyUpVideo.loopPointReached += VideoEndReached;
             StartContent.SetActive(true);
             SessionContent.SetActive(false);
+            CountdownContent.SetActive(false);
             VideoRenderTexture.SetActive(false);
             FinishButton.SetActive(false);
             SallyUpVideo.Stop();
             PushupLeftCountText.text = "30";
             CurrentPushUpTimeIndex = 0;
-            IsInit = false;
+            countdownTime = 10;
+            bCountdown = false;
+            CountdownText.text = countdownTime.ToString();
         }
 
         public void OnDisable()
@@ -45,6 +53,15 @@ namespace whm {
         void Update()
         {
             if (! SallyUpVideo.isPlaying) {
+                if (bCountdown) {
+                    if (countdownTime > 0.0f) {
+                        countdownTime -= Time.deltaTime;
+                        CountdownText.text = countdownTime.ToString("0.00");
+                    } else {
+                        bCountdown = false;
+                        StartVideo();
+                    }
+                }
                 return;
             }
 
@@ -67,10 +84,17 @@ namespace whm {
         public void PlayButtonClick()
         {
             StartContent.SetActive(false);
+            CountdownContent.SetActive(true);
+            bCountdown = true;
+        }
+
+        protected void StartVideo()
+        {
+            bCountdown = false;
+            CountdownContent.SetActive(false);
             SessionContent.SetActive(true);
             SallyUpVideo.Play();
             VideoRenderTexture.SetActive(true);
-            IsInit = true;
         }
 
         public void FinishButtonClick()

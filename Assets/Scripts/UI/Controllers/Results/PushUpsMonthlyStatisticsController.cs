@@ -43,7 +43,7 @@ namespace whm {
 
             }
 
-            AveragePushUpsText.text = (totalPushUps / totalRounds).ToString("0.00");
+            AveragePushUpsText.text = (totalPushUps / totalRounds).ToString("0.0");
             MostPushUpsText.text = mostPushUps.ToString();
             totalRoundsText.text = totalRounds.ToString();
             totalPushUpsText.text = totalPushUps.ToString();
