@@ -20,8 +20,13 @@ namespace Paroxe.SuperCalendar.Internal
 
         private void GetCells()
         {
-            if (m_CalendarCells == null || m_CalendarCells.Length == 0)
+            if (m_CalendarCells == null || m_CalendarCells.Length == 0) {
                 m_CalendarCells = GetComponentsInChildren<CalendarCell>();
+            }
+            
+            for(int i = 0; i < m_CalendarCells.Length; i++) {
+                m_CalendarCells[i].Init();
+            }
         }
 
         public void OnCellSelected(CalendarCell cell)
@@ -117,7 +122,7 @@ namespace Paroxe.SuperCalendar.Internal
                     foreach (SavedResultType e in Enum.GetValues(typeof(SavedResultType)))
                     {
                         if (GameController.instance.SavedResultModelRegistry.doesDayHaveData(e, date)) {
-                            Debug.Log("true: " + e);
+                            //Debug.Log("true: " + e);
                             m_CalendarCells[i + firstDay].SetResultsIndicator(true, e);
                         } else {
                             m_CalendarCells[i + firstDay].SetResultsIndicator(false, e);

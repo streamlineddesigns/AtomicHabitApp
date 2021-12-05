@@ -28,7 +28,7 @@ namespace Paroxe.SuperCalendar.Internal
 
         private State m_State;
 
-        void Awake() {
+        public void Init() {
             for(int i = 0; i < resultIndicatorViews.Count; i++) {
                 resultIndicatorRegistry[resultIndicatorViews[i].savedResultType] = resultIndicatorViews[i];
             }
