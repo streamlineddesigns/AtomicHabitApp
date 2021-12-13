@@ -8,7 +8,7 @@ namespace whm {
     {
         public static BreathingLoopController instance;
         public BreathingLoopModel Model;
-        public SettingsModel SettingsModel;
+        public BreathingSettingsModel SettingsModel;
         protected EventPublisher EventPublisher;
 
         public void Awake()

@@ -13,7 +13,7 @@ namespace whm {
 
         public void StartBreathingButtonClick()
         {
-            UIController.instance.Open(ViewName.Settings);
+            UIController.instance.Open(ViewName.BreathingSettings);
         }
 
         public void StartPushUpsButtonClick()
@@ -24,6 +24,11 @@ namespace whm {
         public void ColdShowersButtonClick()
         {
             UIController.instance.Open(ViewName.ColdShowersStart);
+        }
+
+        public void MeditationButtonClick()
+        {
+            UIController.instance.Open(ViewName.MeditationStart);
         }
     }
 

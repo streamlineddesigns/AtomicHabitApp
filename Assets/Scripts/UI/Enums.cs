@@ -6,7 +6,7 @@ namespace whm {
 
     public enum ViewName {
         Start,
-        Settings,
+        BreathingSettings,
         BreathingStart,
         BreathingRetention,
         BreathingRecovery,
@@ -24,6 +24,10 @@ namespace whm {
         ColdShowerSpecifics,
         ColdShowersStart,
         ColdShowersCompletion,
+        MeditationStart,
+        MeditationCompletion,
+        MeditationMonthlyStatistics,
+        MeditationSpecifics,
     }
 
     public enum PaceName {
@@ -43,6 +47,7 @@ namespace whm {
         Breathing,
         PushUps,
         ColdShowers,
+        Meditation,
     }
 
 }
