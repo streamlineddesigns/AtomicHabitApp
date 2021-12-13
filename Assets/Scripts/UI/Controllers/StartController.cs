@@ -11,12 +11,12 @@ namespace whm {
             UIController.instance.Open(ViewName.ResultsCalendar);
         }
 
-        public void StartBreathingButtonClick()
+        public void BreathingButtonClick()
         {
             UIController.instance.Open(ViewName.BreathingSettings);
         }
 
-        public void StartPushUpsButtonClick()
+        public void PushUpsButtonClick()
         {
             UIController.instance.Open(ViewName.PushUpsStart);
         }
