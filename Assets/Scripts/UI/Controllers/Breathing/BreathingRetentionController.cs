@@ -13,9 +13,9 @@ namespace whm {
         {
             timer = 0;
             wholeSeconds = 0;
-            AudioController.instance.PlayPingSound();
-            AudioController.instance.PlayRetentionMusic();
-            AudioController.instance.PlayRetentionGuidedVoice();
+            BreathingAudioController.instance.PlayPingSound();
+            BreathingAudioController.instance.PlayRetentionMusic();
+            BreathingAudioController.instance.PlayRetentionGuidedVoice();
         }
 
         void Update()
@@ -31,7 +31,7 @@ namespace whm {
         {
             BreathingLoopController.instance.Model.RetentionTimer = wholeSeconds;
 
-            if (((int) BreathingLoopController.instance.Model.RetentionTimer) % 60 == 0) AudioController.instance.PlayPingSound();
+            if (((int) BreathingLoopController.instance.Model.RetentionTimer) % 60 == 0) BreathingAudioController.instance.PlayPingSound();
 
             if (BreathingLoopController.instance.Model.RetentionTimer > BreathingLoopController.instance.Model.retentionThresholdTilClick) {
                 BreathingLoopController.instance.Model.BreathingRetentionClickMessage.SetActive(true);

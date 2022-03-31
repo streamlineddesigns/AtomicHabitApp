@@ -16,8 +16,8 @@ namespace whm {
             timer = 0;
             delay = initialDelay;
             wholeSeconds = 0;
-            AudioController.instance.PlayRecoveryMusic();
-            AudioController.instance.PlayRecoveryGuidedVoice();
+            BreathingAudioController.instance.PlayRecoveryMusic();
+            BreathingAudioController.instance.PlayRecoveryGuidedVoice();
         }
 
         void Update()

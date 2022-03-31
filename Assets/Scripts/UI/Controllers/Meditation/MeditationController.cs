@@ -8,6 +8,7 @@ namespace whm {
     {
         public static MeditationController Singleton;
         public MeditationModel Model;
+        public MeditationSettingsModel SettingsModel;
 
         public void Awake()
         {
@@ -17,6 +18,17 @@ namespace whm {
                 Destroy(Singleton);
             }
         }
+
+        public void SetTargetMeditationDuration(float val)
+        {
+            Model.targetMeditationDuration = val;
+        }
+
+        public float GetTargetMeditationDuration()
+        {
+            return Model.targetMeditationDuration;
+        }
+
     }
 
 }

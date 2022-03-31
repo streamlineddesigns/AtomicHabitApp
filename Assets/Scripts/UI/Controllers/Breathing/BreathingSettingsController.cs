@@ -22,7 +22,7 @@ namespace whm {
             Model.BreathingSoundButtonImage.color = (Model.bIsBreathingSoundOn) ? Model.OnColor : Model.OffColor; 
 
             Model.BreathingPaceText.text = Model.getCurrentPaceString();
-            AudioController.instance.SetStartGuidedVoice(Model.iBreathingPace);
+            BreathingAudioController.instance.SetStartGuidedVoice(Model.iBreathingPace);
         }
 
         public void BreathingPaceButtonClick()
@@ -44,7 +44,7 @@ namespace whm {
 
             Model.SetBreathingPace((int)Model.currentPace);
             Model.BreathingPaceText.text = Model.getCurrentPaceString();
-            AudioController.instance.SetStartGuidedVoice(Model.iBreathingPace);
+            BreathingAudioController.instance.SetStartGuidedVoice(Model.iBreathingPace);
         }
 
         public void GuidedVoiceToggleClick()

@@ -43,6 +43,11 @@ namespace whm {
             if (iN != 0 && sRT == SavedResultType.ColdShowers) {
                 intNumber = iN;
             }
+
+            //Meditation Initialization
+            if (iN != 0 && sRT == SavedResultType.Meditation) {
+                intNumber = iN;
+            }
         }
     }
 

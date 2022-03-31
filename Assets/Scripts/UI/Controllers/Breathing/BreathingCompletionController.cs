@@ -21,9 +21,9 @@ namespace whm {
 
             generateNewRoundDataUI();
 
-            AudioController.instance.StopAll();
-            AudioController.instance.PlayGongSound();
-            AudioController.instance.PlayCompletionGuidedVoice();
+            BreathingAudioController.instance.StopAll();
+            BreathingAudioController.instance.PlayGongSound();
+            BreathingAudioController.instance.PlayCompletionGuidedVoice();
         }
 
         protected void resetRoundDataUI()

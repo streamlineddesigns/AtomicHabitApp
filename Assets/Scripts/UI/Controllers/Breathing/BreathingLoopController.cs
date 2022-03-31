@@ -37,7 +37,7 @@ namespace whm {
         public void FinishButtonClick(bool ImmediateFinish = false)
         {
             BreathingLoopController.instance.Model.canDoubleTap = false;
-            AudioController.instance.StopAll();
+            BreathingAudioController.instance.StopAll();
 
             if (ImmediateFinish) {
                 UIController.instance.Open(ViewName.Start);

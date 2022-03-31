@@ -11,6 +11,7 @@ namespace whm {
                                                                                          {PaceName.Fast,   "FAST"},
                                                                                          {PaceName.Slow,   "SLOW"}};       
         public List<PaceName> paceKeys;
+        
         public PaceName currentPace = PaceName.Normal;                                         
         public int  iBreathingPace;
         public bool bIsGuidedVoiceOn;

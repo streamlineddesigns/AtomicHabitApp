@@ -28,7 +28,7 @@ namespace whm {
 
         public void MeditationButtonClick()
         {
-            UIController.instance.Open(ViewName.MeditationStart);
+            UIController.instance.Open(ViewName.MeditationSettings);
         }
     }
 

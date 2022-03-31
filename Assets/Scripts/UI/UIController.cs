@@ -63,10 +63,20 @@ namespace whm {
             Open(e);
         }
 
+        public void Home()
+        {
+            BreathingAudioController.instance.StopAll();
+            MeditationAudioController.instance.StopAll();
+            Open(ViewName.Start);
+        }
+
         public string GetReadableTime(float originalTime)
         {
             float minutes = (int) originalTime / 60;
-            float seconds = originalTime % 60.0f;
+            float seconds = originalTime % 60;
+            if (seconds >= 59) {
+                seconds = 59;
+            }
             string readable = minutes.ToString("") + ":" + seconds.ToString("00");
             return readable;
         }

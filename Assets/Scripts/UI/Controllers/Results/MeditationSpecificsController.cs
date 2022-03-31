@@ -16,7 +16,7 @@ namespace whm {
             DateTime date = new DateTime(UIController.instance.selectedResult.dateTime);
             DateTimeText.text = date.ToString("MM/dd/yyyy HH:mm");
 
-            TotalMeditationTimeText.text = UIController.instance.selectedResult.intNumber.ToString();
+            TotalMeditationTimeText.text = UIController.instance.GetReadableTime(UIController.instance.selectedResult.intNumber);
         }
     }
 

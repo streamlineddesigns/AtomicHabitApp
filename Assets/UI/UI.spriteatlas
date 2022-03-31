@@ -28,20 +28,25 @@ SpriteAtlas:
       allowAlphaSplitting: 0
       enableRotation: 0
       enableTightPacking: 0
+    secondaryTextureSettings: {}
     variantMultiplier: 1
     packables:
     - {fileID: 102900000, guid: 7a595feb3be182b44806ed179acf12c0, type: 3}
     bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
   - {fileID: 21300000, guid: 684f9722ff4bee94f9c3de83a61bf135, type: 3}
   - {fileID: 21300000, guid: c3b404625b2e0824cbd39f3825af399b, type: 3}
   - {fileID: 21300000, guid: 7a33800328c280a4ba321b15ea7685ba, type: 3}
   - {fileID: 21300000, guid: 08847f33fbd990e4c801ab21eaaebf40, type: 3}
+  - {fileID: 21300000, guid: ac6305735995e16419fa4979a5f3d1e3, type: 3}
   - {fileID: 21300000, guid: 2123d8544a743064da77c064d2f34db7, type: 3}
   - {fileID: 21300000, guid: db385764ad0a3b048a43a060cb1cf6d1, type: 3}
   - {fileID: 21300000, guid: bd13a7e4a9837dd4bbf00a53fc14e4c8, type: 3}
   - {fileID: 21300000, guid: 7a8d741546546044e957ea0d90130f02, type: 3}
+  - {fileID: 21300000, guid: a87ac975d91efb44584dc8a05264f84e, type: 3}
   - {fileID: 21300000, guid: 607b9197fe2db8e42b0a2afc8ac6a0bb, type: 3}
   - {fileID: 21300000, guid: 1033b4a72a4c5374da7fd1ba5fe34bb5, type: 3}
   - {fileID: 21300000, guid: 9730b889600b02b499eda08f1f4221e5, type: 3}
@@ -60,10 +65,12 @@ SpriteAtlas:
   - speaker-filled-audio-tool
   - hexagon-geometrical-shape-outline
   - chevron-arrow-up
+  - Quote
   - headphone
   - meditation
   - down-arrow
   - add
+  - rainy
   - settings
   - tinycircle
   - play
@@ -77,5 +84,6 @@ SpriteAtlas:
   - wind
   - voice-command
   - meditationasdf
+  m_RenderDataMap: {}
   m_Tag: UI
   m_IsVariant: 0

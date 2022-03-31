@@ -26,10 +26,10 @@ namespace whm {
             scaleStep = (0.5f / 30.0f) / scaleTime;
             isBreathingIn = true;
             image.transform.localScale = new Vector3(floatMinXScale, floatMinYScale, image.transform.localScale.z);
-            AudioController.instance.PlayInhaleSound();
+            BreathingAudioController.instance.PlayInhaleSound();
 
 
-            AudioController.instance.PlayStartGuidedVoice();
+            BreathingAudioController.instance.PlayStartGuidedVoice();
         }
 
         void Update()
@@ -39,14 +39,14 @@ namespace whm {
                     image.transform.localScale = new Vector3(image.transform.localScale.x + scaleStep, image.transform.localScale.y + scaleStep, image.transform.localScale.z);
                 } else {
                     isBreathingIn = false;
-                    AudioController.instance.PlayExhaleSound();
+                    BreathingAudioController.instance.PlayExhaleSound();
                 }
             } else {
                 if (image.transform.localScale.x >= floatMinXScale || image.transform.localScale.y >= floatMinYScale) {
                     image.transform.localScale = new Vector3(image.transform.localScale.x - scaleStep, image.transform.localScale.y - scaleStep, image.transform.localScale.z);
                 }  else {
                     isBreathingIn = true;
-                    AudioController.instance.PlayInhaleSound();
+                    BreathingAudioController.instance.PlayInhaleSound();
                     IncrementBreatheCount();
                 }
             }

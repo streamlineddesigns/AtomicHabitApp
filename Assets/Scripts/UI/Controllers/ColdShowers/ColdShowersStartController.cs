@@ -96,7 +96,7 @@ namespace whm {
             bPreparationCountdownActive = false;
             CountdownContent.SetActive(false);
             SessionContent.SetActive(true);
-            AudioController.instance.PlayPingSound();
+            BreathingAudioController.instance.PlayPingSound();
         }
 
         protected void updateUserSetTimeText()
@@ -135,8 +135,8 @@ namespace whm {
 
         public void TimerEndReached()
         {
-            AudioController.instance.PlayPingSound();
-            AudioController.instance.PlayGongSound();
+            BreathingAudioController.instance.PlayPingSound();
+            BreathingAudioController.instance.PlayGongSound();
             FinishButtonClick();
         }
     }

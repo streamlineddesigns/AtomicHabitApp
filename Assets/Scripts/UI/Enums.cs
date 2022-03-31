@@ -28,6 +28,7 @@ namespace whm {
         MeditationCompletion,
         MeditationMonthlyStatistics,
         MeditationSpecifics,
+        MeditationSettings,
     }
 
     public enum PaceName {
@@ -48,6 +49,16 @@ namespace whm {
         PushUps,
         ColdShowers,
         Meditation,
+    }
+
+    public enum MeditationDuration {
+        FiveMinute,
+        TenMinute,
+        FifteenMinute,
+        TwentyMinute,
+        TwentyFiveMinute,
+        ThirtyMinute,
+        FortyFiveMinute,
     }
 
 }
