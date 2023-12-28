@@ -112,8 +112,6 @@ namespace whm {
 
         public void TimerEndReached()
         {
-            MeditationAudioController.instance.PlayPingSound();
-            MeditationAudioController.instance.PlayGongSound();
             FinishButtonClick();
         }
 

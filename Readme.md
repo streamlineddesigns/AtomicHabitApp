@@ -82,3 +82,11 @@ If everything has been setup correctly by this step. Classes were created, added
 
 
 #####  Save / Load Data  
+
+
+##### Moving forward
+
+1. UI Redesign
+2. New Narration
+3. Text to Speech
+4. New animations

@@ -14,6 +14,9 @@ namespace whm {
         void OnEnable()
         {
             MeditationTimeText.text = UIController.instance.GetReadableTime(MeditationController.Singleton.Model.actualMeditationDuration);
+            MeditationAudioController.instance.StopAll();
+            MeditationAudioController.instance.PlayPingSound();
+            MeditationAudioController.instance.PlayGongSound();
         }
 
         public void ResetButtonClick()

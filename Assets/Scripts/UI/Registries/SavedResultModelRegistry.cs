@@ -18,7 +18,7 @@ namespace whm {
         /*
          * The Registry of each month's results
          * SavedResultType : Dictionary keys are organized by SavedResultType. i.e Breathing, PushUps, ColdShowers, etc
-         * Dictionary int : Inner Dictionary keys are dateTime.month parsed as ints and returns a list of results by month
+         * Dictionary int : Inner Dictionary keys are dateTime.month.ToString("yyyyMM") parsed as ints and returns a list of results by month
          */
         private Dictionary<SavedResultType, Dictionary<int, List<SavedResultModel>>> SavedResultsMonthRegistry = new Dictionary<SavedResultType, Dictionary<int, List<SavedResultModel>>>();
 
