@@ -1,7 +1,7 @@
 # Notes  
 
 ### The following is an overview of the project  
-#### Tiny MVC Framework powers this C#/Unity App
+#### Tiny MVC Framework - C#/Unity App
 MVC architecture as a solution to UI Management  
 Dispatcher & Publish/Subscribe Patterns as a solution to Event Management  
 Registry Pattern as a solution to Reference Management  
